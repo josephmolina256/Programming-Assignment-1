@@ -1,0 +1,3 @@
+def gale_shapley(hospital_prefs, student_prefs):
+    ...
+
