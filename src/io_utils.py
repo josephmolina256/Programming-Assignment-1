@@ -1,6 +1,6 @@
 def read_preferences(path):
 	"""
-	Reads input file from path.
+	Reads input file from path (in /data directory).
 	Returns:
 		n: int
 		hospital_prefs: list[list[int]]
@@ -21,5 +21,8 @@ def read_preferences(path):
 
 
 def write_matches():
+	"""
+	writes our matches to our final output files in the /data directory
+	"""
 	...
 
