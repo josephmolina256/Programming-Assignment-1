@@ -1,7 +1,16 @@
+def parse_input(path):
+    with open(path, "r") as f:
+        n = int(f.readline())
 
+        hospital_preferences = []
+        for i in range(n):
+            hospital_preferences.append([int(x) for x in f.readline().split()])
 
-# Need a parsing function to turn data into hospital, student preferences
+        student_preferences = []
+        for i in range(n):
+            student_preferences.append([int(x) for x in f.readline().split()])
 
+    return n, hospital_preferences, student_preferences
 
 def gale_shapley(n, hospital_preferences, student_preferences):
 
@@ -12,7 +21,7 @@ def gale_shapley(n, hospital_preferences, student_preferences):
 
     while free_hospitals:
         h = free_hospitals.pop(0)
-        s = hospital_preferences[h][next[h]]
+        s = hospital_preferences[h][next_i[h]]
         next_i[h] += 1
 
         # if the student is unmatcged it will (perhaps, temporarily) accept
