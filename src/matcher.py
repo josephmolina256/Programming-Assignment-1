@@ -24,7 +24,7 @@ def gale_shapley(n, hospital_preferences, student_preferences):
         s = hospital_preferences[h][next_i[h]]
         next_i[h] += 1
 
-        # if the student is unmatcged it will (perhaps, temporarily) accept
+        # if the student is unmatched it will (perhaps, temporarily) accept
         if s_match[s] is None:
             s_match[s]=h
             h_match[h]=s
@@ -35,9 +35,9 @@ def gale_shapley(n, hospital_preferences, student_preferences):
             assigned_h = s_match[s]
             for hosp in student_preferences[s]:
                 if hosp == h: 
-                    flag = True #student preferes current to assigned
+                    flag = True #student prefers current to assigned
                     break
-                if hosp == assigned_h: #student preferes assigned to current
+                if hosp == assigned_h: #student prefers assigned to current
                     break
 
             # reassign hospital if necessary, turn old hospital free
