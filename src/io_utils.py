@@ -1,6 +1,6 @@
 def read_preferences(path):
 	"""
-	Reads input file from path (in /data directory).
+	Reads input file from path.
 	Returns:
 		n: int
 		hospital_prefs: list[list[int]]
@@ -17,12 +17,24 @@ def read_preferences(path):
 	if len(lines) != 1 + 2 * n:
 		raise ValueError("Malformed input. Wrong number of lines")
 
-	...
+	hospital_preferences = []
+	for i in range(1, n + 1):
+		hospital_preferences.append([int(x) for x in lines[i].split()])
+
+	student_preferences = []
+	for i in range(n + 1, 2 * n + 1):
+		student_preferences.append([int(x) for x in lines[i].split()])
+
+	return n, hospital_preferences, student_preferences
 
 
-def write_matches():
+def write_matches(h_match, output_path="data/example.out"):
 	"""
-	writes our matches to our final output files in the /data directory
+	Writes matches to output file.
 	"""
-	...
-
+	n = len(h_match)
+	with open(output_path, "w") as f:
+		for h in range(n):
+			s = h_match[h]
+			# Convert to 1-based indexing
+			f.write(f"{h + 1} {s + 1}\n")

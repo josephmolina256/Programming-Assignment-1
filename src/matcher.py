@@ -1,17 +1,3 @@
-def parse_input(path):
-    with open(path, "r") as f:
-        n = int(f.readline())
-
-        hospital_preferences = []
-        for i in range(n):
-            hospital_preferences.append([int(x) for x in f.readline().split()])
-
-        student_preferences = []
-        for i in range(n):
-            student_preferences.append([int(x) for x in f.readline().split()])
-
-    return n, hospital_preferences, student_preferences
-
 def gale_shapley(n, hospital_preferences, student_preferences):
 
     free_hospitals = list(range(n))
@@ -21,7 +7,9 @@ def gale_shapley(n, hospital_preferences, student_preferences):
 
     while free_hospitals:
         h = free_hospitals.pop(0)
-        s = hospital_preferences[h][next_i[h]]
+        if next_i[h] >= n:
+            continue
+        s = hospital_preferences[h][next_i[h]] -1
         next_i[h] += 1
 
         # if the student is unmatched it will (perhaps, temporarily) accept
@@ -34,10 +22,10 @@ def gale_shapley(n, hospital_preferences, student_preferences):
             flag = False
             assigned_h = s_match[s]
             for hosp in student_preferences[s]:
-                if hosp == h: 
+                if hosp == h + 1: 
                     flag = True #student prefers current to assigned
                     break
-                if hosp == assigned_h: #student prefers assigned to current
+                if hosp == assigned_h + 1: #student prefers assigned to current
                     break
 
             # reassign hospital if necessary, turn old hospital free
