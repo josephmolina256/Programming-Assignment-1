@@ -1,10 +1,12 @@
-def read_preferences(path):
+from typing import List
+
+def read_preferences(path: str):
 	"""
 	Reads input file from path.
 	Returns:
 		n: int
-		hospital_prefs: list[list[int]]
-		student_prefs: list[list[int]]
+		hospital_prefs: List[List[int]]
+		student_prefs: List[List[int]]
 	"""
 
 	with open(path, "r") as f:
@@ -28,7 +30,7 @@ def read_preferences(path):
 	return n, hospital_preferences, student_preferences
 
 
-def write_matches(h_match, output_path="data/example.out"):
+def write_matches(h_match: List[List[int]], output_path: str = "data/example.out"):
 	"""
 	Writes matches to output file.
 	"""
@@ -38,3 +40,10 @@ def write_matches(h_match, output_path="data/example.out"):
 			s = h_match[h]
 			# Convert to 1-based indexing
 			f.write(f"{h + 1} {s + 1}\n")
+
+def write_error(output_path: str, message: str):
+	"""
+	Writes an error to output file for malformed inputs.
+	"""
+	with open(output_path, "w") as f:
+		f.write(message)

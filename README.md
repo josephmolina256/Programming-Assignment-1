@@ -2,7 +2,7 @@
 
 # Team
 - Josh Caron, UFID = 40792496
-- Joseph Molina, UFID = xxxxxxxx
+- Joseph Molina, UFID = 37598582
 
 # To compile/build the code
 - No compliation or build step required. 
@@ -14,8 +14,9 @@ python3 --version
 
 # To run the matcher
 
+
 ```bash
-python3 src/main.py data/example.in
+python3 src/main.py <input file path> <output file path>
 ```
 
 # To run the verifier
