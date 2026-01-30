@@ -21,11 +21,11 @@ def read_preferences(path: str):
 
 	hospital_preferences = []
 	for i in range(1, n + 1):
-		hospital_preferences.append([int(x) for x in lines[i].split()])
+		hospital_preferences.append([int(x) - 1 for x in lines[i].split()])
 
 	student_preferences = []
 	for i in range(n + 1, 2 * n + 1):
-		student_preferences.append([int(x) for x in lines[i].split()])
+		student_preferences.append([int(x) - 1 for x in lines[i].split()])
 
 	return n, hospital_preferences, student_preferences
 

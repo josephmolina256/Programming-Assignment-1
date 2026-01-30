@@ -14,14 +14,14 @@ python3 --version
 
 # To run the matcher
 
-
 ```bash
 python3 src/main.py <input file path> <output file path>
 ```
 
 # To run the verifier
-- xxx
-
+```bash
+python3 src/main.py <input file path> <output file path> --verify
+```
 
 # Assumptions
 
@@ -42,4 +42,4 @@ python3 src/main.py <input file path> <output file path>
 
 
 # Graph and Solution to Task C
-xxx
+![Task C Graph](docs/matcher_times.png)
