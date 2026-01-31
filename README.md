@@ -23,6 +23,11 @@ python3 src/main.py <input file path> <output file path>
 python3 src/main.py <input file path> <output file path> --verify
 ```
 
+# Testing that we did:
+```bash
+python -m tests.check_match_and_verify <Optional test input file>  
+```
+
 # Assumptions
 
 **Input:**
