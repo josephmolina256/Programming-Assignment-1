@@ -23,7 +23,7 @@ def main():
     try:
         n, hospital_prefs, student_prefs = read_preferences(input_path)
     except:
-        write_error(output_path, "Invalid input.")
+        write_error(output_path, "INVALID INPUT")
         return 1
     
     h_match = gale_shapley(n, hospital_prefs, student_prefs)
@@ -32,12 +32,12 @@ def main():
         is_valid = check_validity(matching=h_match, n=n)
         is_stable = check_stability(h_match, hospital_prefs, student_prefs)
         if not is_valid:
-            write_error(output_path, "Invalid matching.")
+            write_error(output_path, "INVALID MATCHING")
             return 1
         if not is_stable:
-            write_error(output_path, "Matching is not stable.")
+            write_error(output_path, "UNSTABLE MATCHING")
             return 1
-
+    print("VALID STABLE")
     write_matches(h_match, output_path)
     return 0
 

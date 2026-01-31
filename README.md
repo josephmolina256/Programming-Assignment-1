@@ -18,7 +18,7 @@ python3 --version
 python3 src/main.py <input file path> <output file path>
 ```
 
-# To run the verifier
+# To run the matcher WITH verifier
 ```bash
 python3 src/main.py <input file path> <output file path> --verify
 ```
@@ -34,7 +34,7 @@ python3 src/main.py <input file path> <output file path> --verify
 
 **Output:**
 - n lines, each containing "i j" where hospital i is matched to student j. 
-- Verifier output is "VALID STABLE" or fails with messages like "INVALID ___" or "UNSTABLE (blocking pair)". 
+- Verifier output prints "VALID STABLE" or fails with messages like "INVALID ___" or "UNSTABLE (blocking pair)". 
 
 **Dependencies:**
 - Python 3.x standard library only (no external packages required). 

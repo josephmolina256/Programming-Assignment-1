@@ -8,11 +8,11 @@ def check_validity(
     """
     Checks if all students and hospitals have been matched.
     """
-    print("length of matching:", len(matching))
     if len(matching) != n:
-        print("Length mismatch")
+        print("INVALID: Length mismatch")
         return False
     if set(matching) != set(range(n)):
+        print("INVALID: Not a valid matching")
         return False
     
     return True
@@ -51,5 +51,6 @@ def check_stability(
                 if h_pref == h_current:  # Student prefers current hospital over hospital h
                     break
                 if h_pref == h:  # Student prefers hospital h over current
+                    print(f"UNSTABLE: Blocking pair found: Hospital {h+1} and Student {s+1}")
                     return False  # Found instability
     return True
