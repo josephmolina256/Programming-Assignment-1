@@ -43,3 +43,5 @@ python3 src/main.py <input file path> <output file path> --verify
 
 # Graph and Solution to Task C
 ![Task C Graph](docs/matcher_times.png)
+
+Both the matcher and the matcher + verifier times grow non-linearly with n; this matches the expected O(n^2) behaviour of Gale–Shapley (worst-case proposals ~ n^2). The verifier adds overhead but remains within the same complexity class.

@@ -39,10 +39,11 @@ def gale_shapley(
             flag = False
             assigned_h = s_match[s]
             for hosp in student_preferences[s]:
-                if hosp == h + 1: 
-                    flag = True #student prefers current to assigned
+                # student_preferences are 0-based hospital indices
+                if hosp == h:
+                    flag = True  # student prefers current hospital h over assigned_h
                     break
-                if hosp == assigned_h + 1: #student prefers assigned to current
+                if hosp == assigned_h:  # student prefers assigned_h over current
                     break
 
             # reassign hospital if necessary, turn old hospital free
